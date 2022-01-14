@@ -1,0 +1,69 @@
+{
+	"wildcard value" : {
+		"class" : "Nilai wildcard",
+		"description" : "Host ini mengizinkan permintaan yang dibuat dari asal mana pun. Namun, browser akan memblokir semua permintaan ke host ini secara default.",
+		"severity" : "Low / Rendah",
+		"exploitation" : "Tidak Memungkinkan"
+	},
+	"third party allowed" : {
+		"class" : "Pihak Ketiga Diperbolehkan",
+		"description" : "Host ini telah memasukkan host pihak ketiga ke daftar putih untuk permintaan lintas asal.",
+		"severity" : "Medium / Sedang",
+		"exploitation" : "Jika host yang masuk daftar putih adalah platform hosting kode seperti codepen.io atau memiliki kerentanan XSS, ini dapat digunakan untuk mengeksploitasi kesalahan konfigurasi ini."
+
+	},
+	"origin reflected": {
+		"class" : "Origin Tercermin",
+		"description" : "Host ini mengizinkan asal mana pun untuk mengajukan permintaan padanya.",
+		"severity" : "High / Tinggi",
+		"exploitation" : "Buat permintaan dari domain mana pun yang Anda kontrol."
+	},
+	"invalid value" : {
+		"class" : "Nilai Tidak Valid",
+		"description" : "Nilai header tidak valid, implementasi CORS ini tidak berfungsi sama sekali.",
+		"severity" : "Low / Rendah",
+		"exploitation" : "Tidak Memungkinkan"
+	},
+	"post-domain wildcard" : {
+		"class" : "post-domain wildcard",
+		"description" : "Verifikasi origin cacat, memungkinkan permintaan dari host yang memiliki host ini sebagai awalan.",
+		"severity" : "High / Tinggi",
+		"exploitation" : "Buat Request dari target.com.attacker.com"
+	},
+	"pre-domain wildcard" : {
+		"class" : "pre-domain wildcard",
+		"description" : "Verifikasi origin cacat, memungkinkan permintaan dari host yang memiliki host ini sebagai sufiks.",
+		"severity" : "High / Tinggi",
+		"exploitation" : "buat Request dari attacker-target.com"
+	},
+	"null origin allowed" : {
+		"class" : "Origin null diizinkan",
+		"description" : "Host ini mengizinkan permintaan dari origin 'null'.",
+		"severity" : "High / Tinggi",
+		"exploitation" : "buat Request dari sandboxed iframe."
+	},
+	"http origin allowed" : {
+		"class" : "Origin http diizinkan",
+		"description" : "Host ini memungkinkan berbagi sumber daya melalui koneksi tidak terenkripsi (HTTP).",
+		"severity" : "Low / Rendah",
+		"exploitation" : "Permintaan Sniff dibuat melalui saluran yang tidak terenkripsi."
+	},
+	"unrecognized underscore" : {
+		"class" : "Garis bawah tidak dikenal",
+		"description" : "Verifikasi Origin cacat dan dapat dilewati menggunakan garis bawah (_).",
+		"severity" : "High / Tinggi",
+		"exploitation" : "Set the 'Origin' header to target.com_.example.com"
+	},
+	"broken parser" : {
+		"class" : "pengurai rusak",
+		"description" : "Verifikasi Origin cacat dan dapat dilewati menggunakan backtick (`).",
+		"severity" : "High / Tinggi",
+		"exploitation" : "Stel 'Origin' header to %60.example.com"
+	},
+	"unescaped regex" : {
+		"class" : "Regex yang tidak lolo",
+		"description" : "Regex yang digunakan untuk verifikasi asal berisi karakter titik (.) yang tidak lolos.",
+		"severity" : "High / Tinggi",
+		"exploitation" : "Jika targetnya adalah sub.example.com, buat Request dari subxexample.com"
+	}
+}
